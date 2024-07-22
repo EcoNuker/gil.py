@@ -88,6 +88,7 @@ class BucketType(Enum):
     category = 5
     role = 6
     group = 7
+    all = 8    
 
     def get_key(self, msg: Union[ChatMessage, Context[Any]]) -> Any:
         if self is BucketType.user:
@@ -106,6 +107,8 @@ class BucketType(Enum):
             return (msg.channel if isinstance(msg.channel, DMChannel) else msg.author.top_role).id  # type: ignore
         elif self is BucketType.group:
             return msg.channel.id if isinstance(msg.channel, DMChannel) else msg.channel.group_id
+        elif self.BucketType.all:
+            return "__all__"
 
     def __call__(self, msg: Union[ChatMessage, Context[Any]]) -> Any:
         return self.get_key(msg)
