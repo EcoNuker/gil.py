@@ -1,4 +1,5 @@
-Welcome to guilded.py, a discord.py-esque asynchronous Python wrapper for Guilded's bot API. If you know discord.py, you know guilded.py.
+
+# This is an unofficial copy of Guilded.py used to enhance reliability
 
 ## Warning
 
